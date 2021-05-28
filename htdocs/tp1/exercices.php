@@ -114,6 +114,20 @@ echo "<br>";
  *
  * Afficher les valeurs de tous les éléments du tableau en utilisant la boucle foreach.
  */
+echo "Foreach and Array <br>";
+$pays = array (
+    "France : Paris",
+    "Allemagne : Berlin",
+    "Italie : Rome"
+);
+
+foreach ($pays as $p){
+    echo $p;
+    echo "<br>";
+}
+
+echo "<br>";
+echo "<br>";
 
 
 /**
