@@ -145,6 +145,15 @@ $pays_population = array(
     'Allemagne' => 82800000,
 );
 
+foreach ($pays_population as $p => $habitants){
+    if ($habitants > 20000000){
+        echo $p."<br>";
+    }
+}
+
+echo "<br>";
+echo "<br>";
+
 /**
  * 10.
  * En utilisant le tableau ci-dessous afficher la prase suivante pour chaque pays:
