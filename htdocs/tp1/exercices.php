@@ -16,7 +16,13 @@ echo "<br>";
  * 2.
  * Calculer le prix ttc
  */
-
+echo "Calcul prix ttc<br>";
+$prix_ht = 50;
+$tva = 20;
+$prix_ttc = $prix_ht + ($prix_ht/100) * $tva;
+echo 'Le prix TTC du produit est de ' . $prix_ttc . ' €.';
+echo "<br>";
+echo "<br>";
 
 /**
  * 3.
