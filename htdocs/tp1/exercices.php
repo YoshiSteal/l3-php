@@ -92,8 +92,18 @@ echo "<br>";
  *     . incrémenter sa valeur de 2 ;
  * Si la valeur de la variable est égale à 10, la mettre en valeur avec la balise HTML appropriée.
  */
-
-
+echo "Boucle while<br>";
+$variable = 0;
+while($variable != 20){
+    if($variable == 10){
+        echo "<b>$variable</b>";
+    }else{
+        echo $variable;
+    }
+    $variable += 2;
+}
+echo "<br>";
+echo "<br>";
 /**
  * 8.
  * Déclarer une variable de type array qui stocke les informations suivantes :
