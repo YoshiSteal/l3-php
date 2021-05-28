@@ -29,4 +29,8 @@ class Voiture{
         return $this->_vitesse;
     }
 
+    public function accelerer(){
+        //TODO
+    }
+
 }
