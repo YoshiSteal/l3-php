@@ -3,21 +3,19 @@
  * 1.
  * Calculer de la moyenne
 */
+echo "Calcul de la moyenne <br>";
 $note_maths = 15;
 $note_francais = 12;
 $note_histoire_geo = 9;
-$moyenne = 0;
+$moyenne = ($note_maths + $note_francais + $note_histoire_geo)/3;
 echo 'La moyenne est de '.$moyenne.' / 20.';
-
+echo "<br>";
+echo "<br>";
 
 /**
  * 2.
  * Calculer le prix ttc
  */
-$prix_ht = 50;
-$tva = 20;
-$prix_ttc = 0;
-echo 'Le prix TTC du produit est de ' . $prix_ttc . ' €.';
 
 
 /**
@@ -35,7 +33,6 @@ echo 'Le prix TTC du produit est de ' . $prix_ttc . ' €.';
  */
 
 
-
 /**
  * 5.
  * Déclarer une variable $heure qui contient la valeur de type integer de votre choix comprise entre 0 et 24.
@@ -43,10 +40,12 @@ echo 'Le prix TTC du produit est de ' . $prix_ttc . ' €.';
  */
 
 
+
 /**
  * 6.
  * En utilisant la boucle for, afficher la table de multiplication du chiffre 5.
  */
+
 
 
 /**
