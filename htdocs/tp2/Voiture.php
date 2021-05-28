@@ -5,7 +5,7 @@ class Voiture{
     private $_puissance;
     private $_vitesse;
     const NB_ROUES = 4;
-    
+
     public function getCouleur()
     {
         return $this->_couleur;
