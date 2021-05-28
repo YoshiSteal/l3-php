@@ -2,7 +2,7 @@
 
 class ParoleFrancais extends Parole{
 
-    function direBonjour()
+    protected function direBonjour()
     {
         echo "Bonjour";
     }

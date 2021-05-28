@@ -2,8 +2,6 @@
 
 abstract class Parole{
 
-    function direBonjour(){
-        echo "Bonjour";
-    }
+    abstract protected function direBonjour();
 
 }
