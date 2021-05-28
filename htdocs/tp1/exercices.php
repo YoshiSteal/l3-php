@@ -75,8 +75,14 @@ echo "<br>";
  * 6.
  * En utilisant la boucle for, afficher la table de multiplication du chiffre 5.
  */
+echo "Boucle for<br>";
+for ($i = 0; $i <= 10; $i++){
+    echo $i * 5;
+    echo "<br>";
+}
 
-
+echo "<br>";
+echo "<br>";
 
 /**
  * 7.
