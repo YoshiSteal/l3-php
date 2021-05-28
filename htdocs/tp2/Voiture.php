@@ -4,6 +4,7 @@ class Voiture{
     private $_couleur;
     private $_puissance;
     private $_vitesse;
+    const NB_ROUES = 4;
 
     /**
      * @return mixed
@@ -29,6 +30,31 @@ class Voiture{
         return $this->_vitesse;
     }
 
+    /**
+     * @param mixed $couleur
+     */
+    public function setCouleur($couleur)
+    {
+        $this->_couleur = $couleur;
+    }
+
+    /**
+     * @param mixed $puissance
+     */
+    public function setPuissance($puissance)
+    {
+        $this->_puissance = $puissance;
+    }
+
+    /**
+     * @param mixed $vitesse
+     */
+    public function setVitesse($vitesse)
+    {
+        $this->_vitesse = $vitesse;
+    }
+
+    
     public function accelerer(){
         //TODO
     }
