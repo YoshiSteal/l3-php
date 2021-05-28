@@ -146,7 +146,7 @@ $pays_population = array(
 );
 
 foreach ($pays_population as $p => $habitants){
-    if ($habitants > 20000000){
+    if ($habitants >= 20000000){
         echo $p."<br>";
     }
 }
@@ -161,6 +161,9 @@ echo "<br>";
  *
  * utiliser les functions de tableau exemple : array_map()
  */
+function show_array($habitant, $pays){
+    echo $pays." : il y a ".$habitant." d'habitants<br>";
+}
 $pays_population = array(
     'France' => 67595000,
     'Suede' => 9998000,
@@ -170,6 +173,10 @@ $pays_population = array(
     'Mexique' => 122273500,
     'Allemagne' => 82800000,
 );
+array_walk($pays_population, 'show_array');
+
+echo "<br>";
+echo "<br>";
 
 /**
  * 11.
