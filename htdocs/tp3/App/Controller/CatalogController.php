@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Controller;
+
 class CatalogController{
     public function view()
     {

@@ -4,50 +4,29 @@
 class Router
 {
 
-    /**
-     *
-     */
-    function process()
-    {
-        /**
-         * ex http://localhost/
-         *
-         * $uri = /
-         */
-
-        /**
-         * ex http://localhost/catalog
-         *
-         * $uri = /catalog
-         */
-
-        /**
-         * ex http://localhost/catalog/product
-         *
-         * $uri = /catalog/product
-         */
-        $uri = $_SERVER['REQUEST_URI'];
-
-        /**
-         * mapping entre $uri et routes.json
-         * Prevoir route non connue => 404
-         */
-
+    function map($uri){
         $Json = file_get_contents("routes.json");
         $routes = json_decode($Json, true);
 
         foreach ($routes as $route){
-            echo $uri;
-            echo $route['path'];
-            echo "<br>";
             if($route['path'] == $uri){
-                echo $route['controller'];
+                return "App\Controller\\".$route['controller'];
             }
         }
-        /**
-         * instance controller de la route appel de la methode
-         */
+        return null;
+    }
 
+    function process()
+    {
+        $uri = $_SERVER['REQUEST_URI'];
+        $controller = $this->map($uri);
+        if($controller == null) {
+            header("HTTP/1.0 404 Not Found");
+            http_response_code(404);
+        }else{
+            list($controllerObject, $method) = explode("@", $controller);
+            return call_user_func_array([$controllerObject, $method], []);
+        }
     }
 
 }
