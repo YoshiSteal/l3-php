@@ -35,14 +35,21 @@ var_dump((String)$test);
 echo "<br>";
 echo "<br>";
 
-
-
 /**
  * 4.
  * Déclarer une variable $sexe qui contient une chaîne de caractères.
  * Créer une condition qui affiche un message différent en fonction de la valeur de la variable.
  */
+echo "Condition sexe<br>";
+$sexe = 'homme';
+if ($sexe == 'homme'){
+    echo "La personne est un homme";
+}else{
+    echo "La personne n'est pas un homme";
+}
 
+echo "<br>";
+echo "<br>";
 
 /**
  * 5.
