@@ -56,7 +56,19 @@ echo "<br>";
  * Déclarer une variable $heure qui contient la valeur de type integer de votre choix comprise entre 0 et 24.
  * Créer une condition qui affiche un message si l'heure est le matin, l'après-midi ou la nuit.
  */
-
+echo "Condition heure = 9 heures<br>";
+$heure = 9;
+if($heure >= 0 && $heure < 6){
+    echo "nuit";
+}else if($heure >= 6 && $heure < 12){
+    echo "matin";
+}else if($heure >=12 && $heure < 18){
+    echo "après midi";
+}else{
+    echo "soir";
+}
+echo "<br>";
+echo "<br>";
 
 
 /**
