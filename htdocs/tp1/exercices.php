@@ -190,6 +190,13 @@ $keys = array(
     "x24p"
 );
 
+function cmp($a, $b) {
+    if (strlen($a) == strlen($b)) return 0;
+    return (strlen($a) < strlen($b)) ? -1 : 1;
+}
+usort($keys, "cmp");
+var_dump($keys);
+
 /* résultat une fois ordonné :
 array(4) {
     [0]=>
