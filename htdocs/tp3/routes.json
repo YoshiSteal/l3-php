@@ -1,0 +1,18 @@
+{
+
+  "home" : {
+    "path" : "l3-php/htdocs/tp3/",
+    "controller" : "HomeController@home"
+  },
+
+  "catalog" : {
+    "path" : "l3-php/htdocs/tp3/catalog",
+    "controller" : "CatologController@view"
+  },
+
+  "catalog_product" : {
+    "path" : "l3-php/htdocs/tp3/catalog/product",
+    "controller" : "CatologController@viewProduct"
+  }
+
+}
