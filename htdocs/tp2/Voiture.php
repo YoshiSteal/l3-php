@@ -33,4 +33,7 @@ class Voiture{
         //TODO
     }
 
+    public function ralentir(){
+        //TODO
+    }
 }
