@@ -54,7 +54,7 @@ class Voiture{
         $this->_vitesse = $vitesse;
     }
 
-    
+
     public function accelerer(){
         //TODO
     }
