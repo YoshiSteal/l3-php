@@ -29,6 +29,11 @@ echo "<br>";
  * Déclarer une variable $test qui contient la valeur 42. En utilisant la fonction var_dump(),
  * faire en sorte que le type de la variable $test soit string et que la valeur soit bien de 42.
 */
+echo "var_dump()<br>";
+$test = 42;
+var_dump((String)$test);
+echo "<br>";
+echo "<br>";
 
 
 
