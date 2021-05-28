@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 require_once "Autoload.php";
 Autoload::register();
 
-use Entity\Product;
-use Controller\HomeController;
+use App\Entity\Product as Product;
+use App\Controller\HomeController as HomeController;
 
 $product = new Product();
 $controller = new HomeController();
