@@ -3,15 +3,25 @@
 namespace App\Entity\Repository;
 
 use App\Entity\EntityInterface;
+use \PDO;
 
-class Product implements RepositoryInterface
+class Product extends AbstractRepository implements RepositoryInterface
 {
     /**
      * @return EntityInterface[]
      */
     public function findAll() : array
     {
-        //TODO return all row from table
+        $sql = "Select * from products";
+        $products = $this->getConnexion()->query($sql);
+        $i = 0;
+        foreach ($products as $p){
+            //echo $p[0]." ".$p[1]." ".$p[2]."<br>";
+            $product = new \App\Entity\Product($p[1], $p[2]);
+            $array[$i] = $product;
+            $i++;
+        }
+        return $array;
     }
 
     /**

@@ -5,6 +5,6 @@ abstract class AbstractRepository implements RepositoryInterface
 {
     function getConnexion()
     {
-        // return connexion pdo
+        return Connexion::getInstance()->getPDO();
     }
 }

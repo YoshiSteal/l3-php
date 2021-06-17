@@ -1,4 +1,5 @@
 <?php
+
 $lhost = 'localhost';
 $bdd = 'magasin';
 $user = 'root';
