@@ -1,18 +1,16 @@
 {
-
   "home" : {
-    "path" : "/l3-php/htdocs/tp3/",
+    "path" : "/l3-php/htdocs/tp3/index.php",
     "controller" : "HomeController@home"
   },
 
   "catalog" : {
-    "path" : "/l3-php/htdocs/tp3/catalog",
-    "controller" : "CatologController@view"
+    "path" : "/l3-php/htdocs/tp3/index.php/catalog",
+    "controller" : "CatalogController@view"
   },
 
   "catalog_product" : {
-    "path" : "/l3-php/htdocs/tp3/catalog/product",
-    "controller" : "CatologController@viewProduct"
+    "path" : "/l3-php/htdocs/tp3/index.php/catalog/product",
+    "controller" : "CatalogController@viewProduct"
   }
-
 }

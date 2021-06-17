@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-class CatalogController{
+class CatalogController extends AbstarctController {
     public function view()
     {
-        return 'Hello view';
+        echo 'Hello view';
     }
 
     public function viewProduct()
     {
-        return 'Hello view Product';
+        echo 'Hello view Product';
     }
 }
