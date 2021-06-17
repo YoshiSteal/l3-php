@@ -1,11 +1,49 @@
 <?php
+
 namespace App\Entity;
-class Product{
+
+class Product
+{
+
+    private $name;
+    private $price;
+
+
+    public function __construct($name, $price)
+    {
+        $this->name = $name;
+        $this->price = $price;
+    }
 
     /**
-     * Product constructor.
+     * @return mixed
      */
-    public function __construct()
+    public function getPrice()
     {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
     }
 }

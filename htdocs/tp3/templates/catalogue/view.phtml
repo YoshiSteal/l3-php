@@ -1,0 +1,15 @@
+<?php
+$productList = $this->getData('products');
+?>
+
+<?php include(BASE_DIR . '/templates/header.phtml') ?>
+
+    Ma view Catalog Page
+    <ul>
+
+        <?php foreach ($productList as $product) : ?>
+            <li><?= $product->getName() ?> à <?= $product->getPrice() ?>€</li>
+        <?php endforeach; ?>
+    </ul>
+
+<?php include(BASE_DIR . '/templates/footer.phtml') ?>

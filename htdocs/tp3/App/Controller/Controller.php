@@ -14,4 +14,12 @@ abstract class Controller
         $this->data = $args;
         include BASE_DIR . self::TEMPLATE_PATH . $template;
     }
+
+    function getData(string $key)
+    {
+        if (isset($this->data[$key])) {
+            return $this->data[$key];
+        }
+        return null;
+    }
 }
