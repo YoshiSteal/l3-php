@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Product;
 
+require "testBdd.php";
+
 class CatalogController extends Controller {
 
     public function view()
