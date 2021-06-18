@@ -23,7 +23,9 @@ class Product extends AbstractRepository implements RepositoryInterface
      */
     public function find(int $id) : EntityInterface
     {
-        //TODO return produit filtré par id
+        $sql = "Select * from products WHERE id = $id";
+        $query = $this->getConnexion()->query($sql);
+        return $query->fetchObject(\App\Entity\Product::class);
     }
 
     /**

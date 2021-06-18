@@ -11,12 +11,13 @@ class CatalogController extends Controller {
         $list_product = [];
         $productRepo = new \App\Entity\Repository\Product();
         $list_product = $productRepo->findAll();
-        var_dump($list_product);
         $this->render('catalogue/view.phtml', ['products' => $list_product]);
     }
 
     public function viewProduct()
     {
-        echo 'Hello view Product';
+        $productRepo = new \App\Entity\Repository\Product();
+        $product = $productRepo->find(8);
+        $this->render('catalogue/viewProduct.phtml', ['product' => $product]);
     }
 }
