@@ -1,0 +1,17 @@
+{
+    "name": "l3/web",
+    "description": "Projet l3 web avancee",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "L3\\Web\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Level Antoine",
+            "email": "level.toine@gmail.com"
+        }
+    ],
+    "require": {}
+}
