@@ -7,35 +7,8 @@ use \PDO;
 
 class Product extends AbstractRepository implements RepositoryInterface
 {
-    /**
-     * @return EntityInterface[]
-     */
-    public function findAll() : array
-    {
-        $sql = "Select * from products";
-        $query = $this->getConnexion()->query($sql);
-        return $query->fetchAll(PDO::FETCH_CLASS, \App\Entity\Product::class);
-    }
-
-    /**
-     * @param int $id
-     * @return \App\Entity\Product
-     */
-    public function find(int $id) : EntityInterface
-    {
-        $sql = "Select * from products WHERE id = $id";
-        $query = $this->getConnexion()->query($sql);
-        return $query->fetchObject(\App\Entity\Product::class);
-    }
-
-    /**
-     * @param int $id
-     * @return EntityInterface[]
-     */
-    public function findBy($column, $value) : array
-    {
-        $sql = "Select * from products WHERE $column = $value";
-        $query = $this->getConnexion()->query($sql);
-        return $query->fetchAll(PDO::FETCH_CLASS, \App\Entity\Product::class);
+    public function __construct(){
+        $this->table = "products";
+        $this->chemin = \App\Entity\Product::class;
     }
 }

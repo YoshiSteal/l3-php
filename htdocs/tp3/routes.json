@@ -17,5 +17,15 @@
   "guzzle" : {
     "path" : "/l3-php/htdocs/tp3/index.php/guzzle",
     "controller" : "ToDoController@home"
+  },
+
+  "customers" : {
+    "path" : "/l3-php/htdocs/tp3/index.php/customers",
+    "controller" : "CustomerController@view"
+  },
+
+  "customer" : {
+    "path" : "/l3-php/htdocs/tp3/index.php/customers/customer",
+    "controller" : "CustomerController@viewCustomer"
   }
 }

@@ -6,24 +6,40 @@ namespace App\Entity;
 
 class Customer implements EntityInterface
 {
-    private $nom;
-    private $prenom;
+    private $name;
+    private $surname;
     private $age;
 
     /**
      * @return mixed
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
     }
 
     /**
      * @return mixed
      */
-    public function getPrenom()
+    public function getSurname()
     {
-        return $this->prenom;
+        return $this->surname;
+    }
+
+    /**
+     * @param mixed $surname
+     */
+    public function setSurname($surname): void
+    {
+        $this->surname = $surname;
     }
 
     /**
@@ -35,28 +51,14 @@ class Customer implements EntityInterface
     }
 
     /**
-     * @param mixed $nom
-     */
-    public function setNom($nom): void
-    {
-        $this->nom = $nom;
-    }
-
-    /**
-     * @param mixed $prenom
-     */
-    public function setPrenom($prenom): void
-    {
-        $this->prenom = $prenom;
-    }
-
-    /**
      * @param mixed $age
      */
     public function setAge($age): void
     {
         $this->age = $age;
     }
+
+
 
     
 }
