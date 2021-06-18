@@ -30,4 +30,15 @@ class ProductController extends AbstractController
         return $this->render("product.html.twig", ['product' => $product]);
     }
 
+    /**
+     * @Route ("/form/product", name="form_product")
+     */
+    public function productFrom(): Response
+    {
+        $form = $this->createForm(Product::class);
+        return $this->render('form_product.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
 }
