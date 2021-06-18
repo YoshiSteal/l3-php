@@ -12,5 +12,10 @@
   "catalog_product" : {
     "path" : "/l3-php/htdocs/tp3/index.php/catalog/product",
     "controller" : "CatalogController@viewProduct"
+  },
+
+  "guzzle" : {
+    "path" : "/l3-php/htdocs/tp3/index.php/guzzle",
+    "controller" : "ToDoController@home"
   }
 }

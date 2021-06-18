@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require_once "env.php";
 require_once "Autoload.php";
+require_once "vendor/autoload.php";
 Autoload::register();
 
 $router = new Router();

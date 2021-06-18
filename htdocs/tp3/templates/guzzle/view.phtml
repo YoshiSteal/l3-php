@@ -1,0 +1,15 @@
+<?php
+$todos = $this->getData('guzzle');
+?>
+
+<?php include(BASE_DIR . '/templates/header.phtml') ?>
+
+    Ma view Guzzle Page
+    <ul>
+
+        <?php foreach ($todos as $todo) : ?>
+            <li>user n° <?= $todo["userId"] ?> | Task n° <?= $todo["id"] ?> | title = <?= $todo["title"] ?> | completed = <? $todo["completed"] ?></li>
+        <?php endforeach; ?>
+    </ul>
+
+<?php include(BASE_DIR . '/templates/footer.phtml') ?>
