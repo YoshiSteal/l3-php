@@ -34,6 +34,8 @@ class Product extends AbstractRepository implements RepositoryInterface
      */
     public function findBy($column, $value) : array
     {
-        //TODO return produit filtré par id
+        $sql = "Select * from products WHERE $column = $value";
+        $query = $this->getConnexion()->query($sql);
+        return $query->fetchAll(PDO::FETCH_CLASS, \App\Entity\Product::class);
     }
 }

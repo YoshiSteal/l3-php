@@ -10,7 +10,7 @@ class CatalogController extends Controller {
     {
         $list_product = [];
         $productRepo = new \App\Entity\Repository\Product();
-        $list_product = $productRepo->findAll();
+        $list_product = $productRepo->findBy('price', 10);
         $this->render('catalogue/view.phtml', ['products' => $list_product]);
     }
 
