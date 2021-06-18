@@ -1,0 +1,77 @@
+version: '3.7'
+
+services:
+
+  traefik:
+    image: traefik:latest
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.local-traefik.rule=Host(`traefik.project.com`)
+      - traefik.http.services.local-traefik.loadbalancer.server.port=8080
+    command: --api.insecure=true --providers.docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+
+  mysql:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: www-data
+      MYSQL_PASSWORD: www-password
+      MYSQL_DATABASE: eurovent
+    labels:
+      - traefik.enable=false
+    volumes:
+      - mysql_data:/var/lib/mysql:rw
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: www-data
+      PMA_PASSWORD: www-password
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.phpmyadmin-eurovent.rule=Host(`phpmyadmin.project.com`)
+    links:
+      - mysql
+    depends_on:
+      - mysql
+
+
+  mailhog:
+    image: mailhog/mailhog
+    environment:
+      MH_STORAGE: maildir
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.local-mailhog.rule=Host(`mailhog.project.com`)
+      - traefik.http.services.local-mailhog.loadbalancer.server.port=8025
+    volumes:
+      - mailhog_data:/maildir:rw
+
+
+  apache:
+    build: .
+    env_file:
+      - .env
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.local-eurovent.rule=Host(`local.project.com`)
+    depends_on:
+      - mysql
+      - mailhog
+    links:
+      - mysql
+      - mailhog
+    volumes:
+      - ./:/var/www/html:rw
+
+volumes:
+  mysql_data:
+  redis_data:
+  mailhog_data:
