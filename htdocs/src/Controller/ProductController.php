@@ -2,7 +2,9 @@
 
 
 namespace App\Controller;
+use App\Form\ProductFormType;
 use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,9 +35,23 @@ class ProductController extends AbstractController
     /**
      * @Route ("/form/product", name="form_product")
      */
-    public function productFrom(): Response
+    public function new(Request $request): Response
     {
-        $form = $this->createForm(Product::class);
+        $product = new Product();
+        $form = $this->createForm(ProductFormType::class, $product);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $form->getData() holds the submitted values
+            // but, the original `$task` variable has also been updated
+            $product = $form->getData();
+            // ... perform some action, such as saving the task to the database
+            // for example, if Task is a Doctrine entity, save it!
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($product);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('form_product');
+        }
         return $this->render('form_product.html.twig', [
             'form' => $form->createView()
         ]);
