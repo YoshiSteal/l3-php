@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MatchsController!{% endblock %}
+
+{% block body %}
+
+<style>
+    *{
+        font-size: 16px;
+        color:white;
+    }
+    .wrapper { margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif; }
+    .block {
+        background-color: lightslategray;
+        list-style:none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    li{
+        margin: 14px;
+    }
+
+    h1{
+        font-size: 50px;
+        text-align: center;
+        color: lightslategray;
+    }
+
+    b{
+        font-weight: bold;
+        font-size: 20px;
+        color:black;
+    }
+
+    #score{
+        position: absolute;
+        margin-top: -90px;
+        margin-left: 400px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #form{
+        position: absolute;
+        margin-top: -90px;
+        margin-left: 300px;
+    }
+
+    #form input{
+        width: 20px;
+    }
+
+    #parier {
+        margin-left: 100px;
+        padding: 10px;
+    }
+</style>
+
+<div class="wrapper">
+    <h1>Matchs</h1>
+    {% for match in matchs %}
+        <ul class="block">
+            <li><b>date</b>: {{ match.date }}</li>
+            <li><b>domicile</b> : {{ match.teams.domicile }}</li>
+            <li><b>exterieur</b> : {{ match.teams.exterieur }}</li>
+            {% if match.scores.domicile is defined %}
+                <li id="score">{{ match.scores.domicile }} - {{ match.scores.exterieur }}</li>
+            {% elseif app.user %}
+                <li id="form">
+                    <form>
+                        <label for="domicile">domicile</label>
+                        <input type="number" name="Score domicile" id="inputScore1" class="form-control">
+                        <label for="exterieur">extérieur</label>
+                        <input type="number" name="Score extérieur" id="inputScore2" class="form-control">
+                        <button id="parier" class="btn btn-lg btn-primary" type="submit">
+                            Parier
+                        </button>
+                    </form>
+                </li>
+            {% endif %}
+        </ul>
+    {% endfor %}
+</div>
+{% endblock %}
