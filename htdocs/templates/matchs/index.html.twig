@@ -50,7 +50,8 @@
     }
 
     #form input{
-        width: 20px;
+        width: 30px;
+        color: black;
     }
 
     #parier {
@@ -68,7 +69,7 @@
             <li><b>exterieur</b> : {{ match.teams.exterieur }}</li>
             {% if match.scores.domicile is defined %}
                 <li id="score">{{ match.scores.domicile }} - {{ match.scores.exterieur }}</li>
-            {% elseif app.user %}
+            {% elseif app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") <= match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
                 <li id="form">
                     <form>
                         <label for="domicile">domicile</label>
