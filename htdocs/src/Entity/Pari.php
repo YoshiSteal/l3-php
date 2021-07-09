@@ -25,12 +25,12 @@ class Pari
     /**
      * @ORM\Column(type="integer")
      */
-    private $score_1;
+    private $score_domicile;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $score_2;
+    private $score_exterieur;
 
     /**
      * @ORM\Column(type="integer")
@@ -54,26 +54,26 @@ class Pari
         return $this;
     }
 
-    public function getScore1(): ?int
+    public function getScoreDomicile(): ?int
     {
-        return $this->score_1;
+        return $this->score_domicile;
     }
 
-    public function setScore1(int $score_1): self
+    public function setScoreDomicile(int $score_domicile): self
     {
-        $this->score_1 = $score_1;
+        $this->score_domicile = $score_domicile;
 
         return $this;
     }
 
-    public function getScore2(): ?int
+    public function getScoreExterieur(): ?int
     {
-        return $this->score_2;
+        return $this->score_exterieur;
     }
 
-    public function setScore2(int $score_2): self
+    public function setScoreExterieur(int $score_exterieur): self
     {
-        $this->score_2 = $score_2;
+        $this->score_exterieur = $score_exterieur;
 
         return $this;
     }

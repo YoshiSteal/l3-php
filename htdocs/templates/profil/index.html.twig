@@ -16,8 +16,10 @@
         <ul>
             <li><h2>Pari n° {{ key }}</h2></li>
             <li>{{ matchs[pari.getIdMatch()].teams.domicile }} vs {{ matchs[pari.getIdMatch()].teams.exterieur}}</li>
-            <li>{{ pari.getScore1 }} - {{ pari.getScore2 }}</li>
+            <li>{{ pari.getScoreDomicile }} - {{ pari.getScoreExterieur }}</li>
         </ul>
     {% endfor %}
+    <h1>Score total</h1>
+    <h2>{{ points }}</h2>
 </div>
 {% endblock %}

@@ -25,8 +25,8 @@ class PariController extends AbstractController
 
         $pari = new Pari();
         $pari->setIdMatch($id);
-        $pari->setScore1($score1);
-        $pari->setScore2($score2);
+        $pari->setScoreDomicile($score1);
+        $pari->setScoreExterieur($score2);
         $pari->setIdUser($this->getUser()->getId());
         $entityManager->persist($pari);
         $entityManager->flush();

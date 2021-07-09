@@ -24,7 +24,19 @@
       "tireaubut":false
     }
   },
-  "3":{
+  "3": {
+    "teams": {
+      "domicile": "Angleterre",
+      "exterieur": "Italie"
+    },
+    "date": "2021-07-10 20:50:00",
+    "scores": {
+      "domicile": "1",
+      "exterieur": "2",
+      "tireaubut": false
+    }
+  },
+  "4":{
     "teams":{
       "domicile":"France",
       "exterieur":"Autriche"
