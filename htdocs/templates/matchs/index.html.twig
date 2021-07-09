@@ -62,7 +62,7 @@
 
 <div class="wrapper">
     <h1>Matchs</h1>
-    {% for match in matchs %}
+    {% for key,match in matchs %}
         <ul class="block">
             <li><b>date</b>: {{ match.date }}</li>
             <li><b>domicile</b> : {{ match.teams.domicile }}</li>
@@ -71,14 +71,13 @@
                 <li id="score">{{ match.scores.domicile }} - {{ match.scores.exterieur }}</li>
             {% elseif app.user and 'now'|date('Y-m-d H-m-s', "Europe/Paris") <= match.date|date('Y-m-d H-m-s', "Europe/Paris") %}
                 <li id="form">
-                    <form>
+                    <form method="post" action="pari">
+                        <input type="hidden" name="match_id" value="{{ key }}">
                         <label for="domicile">domicile</label>
-                        <input type="number" name="Score domicile" id="inputScore1" class="form-control">
+                        <input type="number" name="score_domicile" id="score1" class="form-control">
                         <label for="exterieur">extérieur</label>
-                        <input type="number" name="Score extérieur" id="inputScore2" class="form-control">
-                        <button id="parier" class="btn btn-lg btn-primary" type="submit">
-                            Parier
-                        </button>
+                        <input type="number" name="score_exterieur" id="score2" class="form-control">
+                        <button id="parier" class="btn btn-lg btn-primary" type="submit">Parier</button>
                     </form>
                 </li>
             {% endif %}

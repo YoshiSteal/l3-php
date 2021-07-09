@@ -20,11 +20,6 @@ class Pari
     /**
      * @ORM\Column(type="integer")
      */
-    private $id_pari;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $id_match;
 
     /**
@@ -45,18 +40,6 @@ class Pari
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdPari(): ?int
-    {
-        return $this->id_pari;
-    }
-
-    public function setIdPari(int $id_pari): self
-    {
-        $this->id_pari = $id_pari;
-
-        return $this;
     }
 
     public function getIdMatch(): ?int

@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Pari;
+
+class PariController extends AbstractController
+{
+    /**
+     * @Route("/pari", name="Pari", methods={"POST"})
+     * @param Request $request
+     * @return Response
+     */
+    public function index(Request $request): Response
+    {
+        $id = $request->request->get("match_id");
+        $score1 = $request->request->get("score_domicile");
+        $score2 = $request->request->get("score_exterieur");
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $pari = new Pari();
+        $pari->setIdMatch($id);
+        $pari->setScore1($score1);
+        $pari->setScore2($score2);
+        $pari->setIdUser($this->getUser()->getId());
+        $entityManager->persist($pari);
+        $entityManager->flush();
+
+
+        return $this->redirectToRoute('home');
+    }
+}
