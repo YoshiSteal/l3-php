@@ -15,16 +15,18 @@ class ClassementController extends AbstractController
      */
     public function index(): Response
     {
+        $infos_users = array();
         $json = file_get_contents('../matchs.json');
         $matchs = json_decode($json, true);
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
         foreach ($users as $user){
             $paris = $this->getDoctrine()->getRepository(Pari::class)->findBy(['id_user' => $user->getId()]);
             $points = $this->calculPoint($paris, $matchs);
-            var_dump($points);
+            array_push($infos_users, array("user" => $user->getEmail(), "score" => $points));
         }
+
         return $this->render('classement/index.html.twig', [
-            'controller_name' => 'ClassementController',
+            'classement' => $this->createClassement($infos_users)
         ]);
     }
 
@@ -56,5 +58,23 @@ class ClassementController extends AbstractController
         }
 
         return $score;
+    }
+
+
+    public function createClassement($infos_users) : array
+    {
+        $classement = array();
+        $i = 0;
+        $max = 0;
+        do{
+            if ($max <= $infos_users[$i]["score"]){
+                array_push($classement, $infos_users[$i]);
+                unset($infos_users[$i]);
+                $i = 0;
+            }
+            $i++;
+        }while(!empty($infos_users));
+
+        return $classement;
     }
 }
