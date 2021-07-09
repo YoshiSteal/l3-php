@@ -1,7 +1,31 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Catalog{% endblock %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}Contact{% endblock %}
 
 {% block body %}
+
+<style>
+    form{
+        width: 700px;
+        margin-top : 100px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    h1{
+        margin-top: 50px;
+        padding: 16px;
+        font-weight: bold;
+        font-size: 34px;
+        text-align: center;
+    }
+
+    #contact_form_message{
+        height: 300px;
+    }
+</style>
+    <h1>Formulaire de contact</h1>
     {{ form(form) }}
 {% endblock %}

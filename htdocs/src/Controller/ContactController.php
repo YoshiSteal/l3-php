@@ -29,7 +29,7 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            return $this->redirectToRoute('form_product');
+            return $this->redirectToRoute('home');
         }
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView()
