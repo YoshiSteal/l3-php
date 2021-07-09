@@ -9,12 +9,15 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Profil</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Wamp/www/l3-php/htdocs/src/Controller/ProfilController.php'|file_link(0) }}">src/Controller/ProfilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Wamp/www/l3-php/htdocs/templates/profil/index.html.twig'|file_link(0) }}">templates/profil/index.html.twig</a></code></li>
-    </ul>
+    Les matchs que vous avez parié !!
+    {% for key,pari in paris %}
+        <ul>
+            <li><h2>Pari n° {{ key }}</h2></li>
+            <li>{{ matchs[pari.getIdMatch()].teams.domicile }} vs {{ matchs[pari.getIdMatch()].teams.exterieur}}</li>
+            <li>{{ pari.getScore1 }} - {{ pari.getScore2 }}</li>
+        </ul>
+    {% endfor %}
 </div>
 {% endblock %}
