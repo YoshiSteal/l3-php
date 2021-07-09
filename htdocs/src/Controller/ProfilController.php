@@ -20,14 +20,27 @@ class ProfilController extends ClassementController
             $json = file_get_contents('../matchs.json');
             $matchs = json_decode($json, true);
             $paris = $this->getDoctrine()->getRepository(Pari::class)->findBy(['id_user' => $this->getUser()->getId()]);
-            $points = $this->calculPoint($paris, $matchs);
             return $this->render('profil/index.html.twig', [
                 'paris' => $paris,
                 'matchs' => $matchs,
-                'points' => $points
+                'points' => $this->calculPoint($paris, $matchs),
+                'position' => $this->getRang($this->buildClassement())
             ]);
         }else{
             return $this->redirectToRoute('app_login');
         }
+    }
+
+    public function getRang ($classement) : int
+    {
+        $position = 0;
+        $i = 0;
+        do{
+            if($classement[$i]["user"]->getId() == $this->getUser()->getId()){
+                $position = $i + 1;
+            }
+            $i++;
+        }while($i != sizeof($classement));
+        return $position;
     }
 }

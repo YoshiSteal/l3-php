@@ -4,30 +4,37 @@ namespace App\Controller;
 
 use App\Entity\Pari;
 use App\Entity\User;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ClassementController extends AbstractController
 {
+    protected $classement;
     /**
      * @Route("/classement", name="classement")
      */
     public function index(): Response
     {
-        $infos_users = array();
+        return $this->render('classement/index.html.twig', [
+            'classement' => $this->buildClassement()
+        ]);
+    }
+
+    public function buildClassement() : array
+    {
+        $this->classement = array();
         $json = file_get_contents('../matchs.json');
         $matchs = json_decode($json, true);
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
         foreach ($users as $user){
             $paris = $this->getDoctrine()->getRepository(Pari::class)->findBy(['id_user' => $user->getId()]);
             $points = $this->calculPoint($paris, $matchs);
-            array_push($infos_users, array("user" => $user->getEmail(), "score" => $points));
+            array_push($this->classement, array("score" => $points, "user" => $user));
         }
-
-        return $this->render('classement/index.html.twig', [
-            'classement' => $this->createClassement($infos_users)
-        ]);
+        ksort($this->classement);
+        return $this->classement;
     }
 
     public function calculPoint($paris, $matchs): int
@@ -60,7 +67,7 @@ class ClassementController extends AbstractController
         return $score;
     }
 
-
+    /*
     public function createClassement($infos_users) : array
     {
         $classement = array();
@@ -77,4 +84,5 @@ class ClassementController extends AbstractController
 
         return $classement;
     }
+    */
 }
