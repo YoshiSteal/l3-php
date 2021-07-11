@@ -9,6 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class ClassementController
+ * @package App\Controller
+ * Controller du classement
+ */
 class ClassementController extends AbstractController
 {
     protected $classement;
@@ -22,6 +27,10 @@ class ClassementController extends AbstractController
         ]);
     }
 
+    /**
+     * @return array
+     * buildClassement permet de générer un tableau avec le classement des utilisateurs
+     */
     public function buildClassement() : array
     {
         $this->classement = array();
@@ -37,6 +46,12 @@ class ClassementController extends AbstractController
         return $this->classement;
     }
 
+    /**
+     * @param $paris
+     * @param $matchs
+     * @return int
+     * CalculPoint est une méthode calculant les point d'un joueur
+     */
     public function calculPoint($paris, $matchs): int
     {
         $score = 0;

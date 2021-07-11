@@ -9,6 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class ContactController
+ * @package App\Controller
+ * Controller de Contact
+ * génére un formulaire de contact
+ */
 class ContactController extends AbstractController
 {
     /**

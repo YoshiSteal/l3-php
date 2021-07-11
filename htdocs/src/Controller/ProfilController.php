@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class ProfilController
+ * @package App\Controller
+ * Controller de profil
+ */
 class ProfilController extends ClassementController
 {
     /**
@@ -31,6 +36,11 @@ class ProfilController extends ClassementController
         }
     }
 
+    /**
+     * @param $classement
+     * @return int
+     * récupère le rang du joueur
+     */
     public function getRang ($classement) : int
     {
         $position = 0;

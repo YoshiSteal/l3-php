@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Pari;
 
+/**
+ * Class PariController
+ * @package App\Controller
+ * Ce controller permet d'ajouter le pari dans la BDD
+ */
 class PariController extends AbstractController
 {
     /**
